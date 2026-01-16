@@ -19,13 +19,13 @@ void main() {
               //kita bisa setting gradientnya mau dari mana, misal dari kiri ke kanan
               // menggunakan begin
               begin: Alignment.topLeft,
-              end: Alignment.bottomRight
+              end: Alignment.bottomRight,
               // control + space : munculin rekomendasi kodingan
             ),
           ),
 
           child: const Center(
-            child: Text("Hello nana"),
+            child: Text("Hello nana", style: TextStyle(color: Colors.white, fontSize: 28)),
           ),
         ),
       ),
