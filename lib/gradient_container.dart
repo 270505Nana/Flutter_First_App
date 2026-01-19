@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:first_app/styled_text.dart';
 
 // nah, kita bisa pisah classnya, biar lebih tertata rapihh
 class GradientContainer extends StatelessWidget {
@@ -26,10 +27,7 @@ class GradientContainer extends StatelessWidget {
       ),
 
       child: const Center(
-        child: Text(
-          "Hello nana",
-          style: TextStyle(color: Colors.white, fontSize: 28),
-        ),
+        child: StyleText()
       ),
     );
   } //build harus return widget
