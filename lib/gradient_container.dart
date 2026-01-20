@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:first_app/styled_text.dart';
 
 //belajar pembuatan variables
-var startAlignment = Alignment.topLeft;
-var endAlignment = Alignment.bottomRight;
+const startAlignment = Alignment.topLeft;
+const endAlignment = Alignment.bottomRight;
 // kalau pakai var kita bisa reassign valuenya, makanya bakal error kalau kita kasih const didalam parent widget kita
 
 // nah, kita bisa pisah classnya, biar lebih tertata rapihh
@@ -17,7 +17,7 @@ class GradientContainer extends StatelessWidget {
   // kemudian karna kita extends stateless kita wajib membuat function namanya build dimana didalam build kita harus menambahkan widget
   Widget build(context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
             Color.fromARGB(255, 26, 2, 80),
@@ -31,7 +31,8 @@ class GradientContainer extends StatelessWidget {
         ),
       ),
 
-      child: const Center(child: StyleText()),
+    // sekarang udah bisa ubah textnya, sebagai parameter
+      child: const Center(child: StyleText("Hello nana")),
     );
   } //build harus return widget
 
