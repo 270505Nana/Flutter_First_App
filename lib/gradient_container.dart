@@ -10,19 +10,26 @@ const endAlignment = Alignment.bottomRight;
 class GradientContainer extends StatelessWidget {
   // adding a construction function
   //nameclass(){}
-  const GradientContainer({super.key});
+  // this.colors -> sebagai input (parameter yang diterima dan dikirim dari tempat class ini dipakai)
+  const GradientContainer(this.color1, this.color2, {super.key});
 
+  // penulisannya bisa gini
+  // const GradientContainer({super.key, required this.colors});
+  // karena color itu dia list karena gradient, maka varnya juga harus menerima list
+  // meskipun dia tipe variablenya final, tapi karena dia jenisnya list dia tetep bisa berubah meski final, makanya di kodingan bawahnya ngga bisa klo box decoration dipakaen const depannya
+  // final List<Color>colors;
+
+  //coba versi nggak dibikin list
+  final Color color1; 
+  final Color color2; 
   @override
   // jadi kalau di flutter kita bisa extends atau inheri dari widget/function lain, disini pakai statelesswidget
   // kemudian karna kita extends stateless kita wajib membuat function namanya build dimana didalam build kita harus menambahkan widget
   Widget build(context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
-            Color.fromARGB(255, 26, 2, 80),
-            Color.fromARGB(255, 45, 7, 98),
-          ],
+          colors: [color1, color2],
           //kita bisa setting gradientnya mau dari mana, misal dari kiri ke kanan
           // menggunakan begin
           begin: startAlignment,
@@ -31,8 +38,8 @@ class GradientContainer extends StatelessWidget {
         ),
       ),
 
-    // sekarang udah bisa ubah textnya, sebagai parameter
-      child: const Center(child: StyleText("Hello nana")),
+      // sekarang udah bisa ubah textnya, sebagai parameter
+      child: Center(child: StyleText("Hello nana")),
     );
   } //build harus return widget
 

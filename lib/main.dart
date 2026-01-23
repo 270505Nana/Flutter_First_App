@@ -8,7 +8,16 @@ void main() {
   //function body
   //runApp is a function, function untuk meng execute function lain
   //didalam runApp kita harus pakai setidaknya 2 basic widget, agar dia engga error
-  runApp(MaterialApp(home: Scaffold(body: GradientContainer())));
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        body: GradientContainer(
+            Color.fromARGB(255, 33, 5, 109),
+            Color.fromARGB(255, 68, 21, 149)
+          ),
+        ),
+      ),
+  );
 }
 
 //kita bisa ngebuat widget kita sendiri, semisal nih kita punya desain navbar. nah itu bisa kita pisah sendiri, biar nnti reusable
