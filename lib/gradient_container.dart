@@ -28,6 +28,12 @@ class GradientContainer extends StatelessWidget {
   //coba versi nggak dibikin list
   final Color color1;
   final Color color2;
+
+  // membuat method untuk aksi dari button textnya
+  // void karena dia tidak mereturn apapun
+  void rollDice(){
+
+  }
   @override
   // jadi kalau di flutter kita bisa extends atau inheri dari widget/function lain, disini pakai statelesswidget
   // kemudian karna kita extends stateless kita wajib membuat function namanya build dimana didalam build kita harus menambahkan widget
@@ -47,7 +53,20 @@ class GradientContainer extends StatelessWidget {
       // sekarang udah bisa ubah textnya, sebagai parameter
       // child: Center(child: StyleText("Hello nana")),
       child: Center( 
-        child: Image.asset('assets/images/dice-2.png'),
+        // di widget image juga bisa kita atur ukurannya
+        child: Column( 
+          children: [
+            // gunakan asset ketika image berasal dari local
+            Image.asset(
+              'assets/images/dice-2.png', 
+              width: 200,
+            ),
+            // onPressed : digunakan untuk memanggil function, atau action dari si buttonnya ketika di klik
+            // biasanya diisi dengan (){} -> juga disebut sebagai anynomous function bcs no name.
+            TextButton(onPressed:rollDice,
+            child: const Text('Roll Dice'))
+          ],
+        )
       ),
     );
   } //build harus return widget
