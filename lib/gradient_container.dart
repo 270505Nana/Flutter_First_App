@@ -55,15 +55,26 @@ class GradientContainer extends StatelessWidget {
       child: Center( 
         // di widget image juga bisa kita atur ukurannya
         child: Column( 
+          // mengatur content children biar berada ditengan
+          // jadi kalo column itu dia mengambil semua space kosong secara vertical, makanya kita perlu set
+          mainAxisSize: MainAxisSize.min, //kalo max dia akan mengambil sebanyak" space secara vertikal
           children: [
             // gunakan asset ketika image berasal dari local
             Image.asset(
               'assets/images/dice-2.png', 
               width: 200,
             ),
+            // untuk menambahkan jarak antar widget tpi bukan menggunakan padding
+            const SizedBox(height: 20),
             // onPressed : digunakan untuk memanggil function, atau action dari si buttonnya ketika di klik
             // biasanya diisi dengan (){} -> juga disebut sebagai anynomous function bcs no name.
             TextButton(onPressed:rollDice,
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.white,
+              textStyle : const TextStyle(
+                fontSize: 28,
+              )
+            ),
             child: const Text('Roll Dice'))
           ],
         )
