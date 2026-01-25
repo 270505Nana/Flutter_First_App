@@ -9,7 +9,7 @@ void main() {
   //runApp is a function, function untuk meng execute function lain
   //didalam runApp kita harus pakai setidaknya 2 basic widget, agar dia engga error
   runApp(
-    MaterialApp(
+    const MaterialApp(
       home: Scaffold(
         body: GradientContainer.purple(),
         ),
