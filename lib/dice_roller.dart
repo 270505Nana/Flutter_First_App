@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
+final randomizer = Random();
 //first class, and statefulwidget always work with 2 clasess or more
 class DiceRoller extends StatefulWidget {
   const DiceRoller({super.key});
@@ -18,20 +20,21 @@ class DiceRoller extends StatefulWidget {
 
 //start with _ (means private) then ended with
 class _DiceRollerState extends State<DiceRoller> {
-  //menambahkan variable yang bisa berubah
-  var activeDiceImage = 'assets/images/dice-2.png';
+
+  var currentDiceRoll = 2;
 
   // membuat method untuk aksi dari button textnya
   // void karena dia tidak mereturn apapun
   void rollDice() {
     // kalau cuma gini dia ngga akan re execute ketika kita klik buttonnya, jadi klo mau nilainya berubah jadi dice yg gambar 4 tuh kita perlu reload gitu loh
     // dia ngga otomatis berubah ketika kita klik buttonnya.
-
     // makanya kita perlu tambahin setState function
     setState(() {
+      // package untuk random dicenya, provide by dart:math
+      // max valuenya 10
+      currentDiceRoll = randomizer.nextInt(6) + 1;
       //didalamnya kita masukin apa yg mau kita ubah gitu simplenya
       // jadi flutter akan reexecuted code, biar gambarnya berubah
-      activeDiceImage = 'assets/images/dice-4.png';
     });
   }
 
@@ -47,7 +50,7 @@ class _DiceRollerState extends State<DiceRoller> {
       children: [
         // gunakan asset ketika image berasal dari local
         // bagian image asset ini yang ada perubahan data, jadi kita bisa pisah aja dia menjadi stateful widget
-        Image.asset(activeDiceImage, width: 200),
+        Image.asset('assets/images/dice-$currentDiceRoll.png', width: 200),
         // untuk menambahkan jarak antar widget tpi bukan menggunakan padding
         const SizedBox(height: 20),
         // onPressed : digunakan untuk memanggil function, atau action dari si buttonnya ketika di klik

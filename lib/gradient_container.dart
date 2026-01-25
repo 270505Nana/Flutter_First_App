@@ -5,19 +5,17 @@ import 'package:first_app/styled_text.dart';
 //belajar pembuatan variables
 const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
-// kalau pakai var kita bisa reassign valuenya, makanya bakal error kalau kita kasih const didalam parent widget kita
+// kalau pakai var kita bisa reassign valuenya, makanya parent widgetnya ngga boleh const
 
-// nah, kita bisa pisah classnya, biar lebih tertata rapihh
 class GradientContainer extends StatelessWidget {
-  // adding a construction function
-  //nameclass(){}
+  // adding a construction function, structure : nameclass(){}
   // this.colors -> sebagai input (parameter yang diterima dan dikirim dari tempat class ini dipakai)
   const GradientContainer(this.color1, this.color2, {super.key});
 
   // penulisannya bisa gini
   // const GradientContainer({super.key, required this.colors});
   // karena color itu dia list karena gradient, maka varnya juga harus menerima list
-  // meskipun dia tipe variablenya final, tapi karena dia jenisnya list dia tetep bisa berubah meski final, makanya di kodingan bawahnya ngga bisa klo box decoration dipakaen const depannya
+  // meskipun dia tipe variablenya final, tapi karena dia jenisnya list dia tetep bisa berubah meski final
   // final List<Color>colors;
 
   // construction 2, setting value
@@ -38,18 +36,14 @@ class GradientContainer extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [color1, color2],
-          //kita bisa setting gradientnya mau dari mana, misal dari kiri ke kanan
-          // menggunakan begin
-          begin: startAlignment,
+          begin: startAlignment, //setting gradient begin -> end
           end: endAlignment,
-          // control + space : munculin rekomendasi kodingan
         ),
       ),
 
       // sekarang udah bisa ubah textnya, sebagai parameter
       // child: Center(child: StyleText("Hello nana")),
       child: Center(
-        // di widget image juga bisa kita atur ukurannya
         child: DiceRoller(),
       )
     );

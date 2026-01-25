@@ -16,9 +16,7 @@ void main() {
       ),
   );
 }
-
-//kita bisa ngebuat widget kita sendiri, semisal nih kita punya desain navbar. nah itu bisa kita pisah sendiri, biar nnti reusable
-// di beberapa screen, jdi kita tinggal panggil ajah
+// kita bisa membuat custom widget, ex penerapannya untuk navbar di mobile
 //langkah-langkah
 // 1. buat class, nama bebas tapi harus kapital
 // kita bisa pisah kelasnya di file yang berbeda
